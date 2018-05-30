@@ -105,31 +105,20 @@ We could even move this into a separate corpus if we wanted by adding `> america
 ### Stanford NER
 
 #### Description
-Stanford Named Entity Recognizer is a Java implementation of Named Entity Recognizer. Named
-Entity Recognition (NER) is method that allows automatic labelling of things like people,
-organizations, and geographic locations in unstructured text. The standard installation of this
-software works relatively well on English sources and contains models trained on CoNLL-2003
-data. For novice users, the tool provides a graphical user interface that allows quick
-experimentation with the potential utility of this approach for your research question. For more
-advanced usage, e.g. training the tool on a specific corpus, command line interaction is needed.
+Stanford Named Entity Recognizer is a Java implementation of Named Entity Recognizer. Named Entity Recognition (NER) is method that allows automatic labelling of things like people, organizations, and geographic locations in unstructured text. The standard installation of this software works relatively well on English sources ([German, Spanish, and Chinese are available as well](https://nlp.stanford.edu/software/CRF-NER.shtml)). The tool provides a graphical user interface that allows quick experimentation with the potential utility of this approach for your research question. For more advanced usage, e.g. training the tool on a specific corpus, command line interaction is needed.
 
 #### Scenario
 
-You want to assess the frequency of mentions of people and places in work(s) of literature. While
-you could use a simple text editing program to find all occurrences of X person or Y place, doing
-so would require comprehensive prior knowledge of all possible people and places. Rather than
-attempt to pre define these possibilities you decide to explore automatic recognition of people
-and places to provide a foundation to your assessment.
+You want to assess the frequency of mentions of people and places in work(s) of literature. While you could use a simple text editing program to find all occurrences of X person or Y place, doing so would require comprehensive prior knowledge of all possible people and places. Rather than attempt to pre define these possibilities you decide to explore automatic recognition of people and places to provide a foundation to your assessment.
 
 #### NER GUI Tool
 
-1. Drag the Stanford Named Entity Recognizer folder to your Desktop and open it.
-1. Double click stanford-ner.jar
-1. Load a Classifier (e.g.) english.all.3class.distsim.crf.ser.gz
-1. From the Classifier menu follow the path below
-1. Classifier > Load CRF from File > Stanford-ner-[releasedate] > classifiers > english.all.3class.distsim.crf.ser.gz
+** Before we start, please make sure the stanford-ner-2018-02-27 folder is on your Desktop.**
+
+1. Open the Stanford NER folder and double click stanford-ner.jar. This will open a window with some sample text.
+1. Load a Classifier: Classifier > Load CRF from File > navigate to stanford-ner-2018-02-27/classifiers folder > select english.all.3class.distsim.crf.ser.gz
 1. Once loaded you will see options on the right hand side of the graphical user interface for ORGANIZATION, LOCATION, and PERSON.
-1. Load one of the texts in the archive folder.
+1. Load one of the texts in the archive folder: File > Open File > select a file from Desktop/project/corpora
 1. Click 'Run NER'
 1. Every organization, person, and place that Stanford Named Entity Recognizer is able identify is now tagged.
 1. Save the tagged file to your Desktop—File > Save Tagged File as > [ any filename you want ]
@@ -139,6 +128,20 @@ and places to provide a foundation to your assessment.
 
 Stanford NER actually has its own .sh script that you can use to do this work automatically.
 
-`@ ../stanford-ner-@@releasedate]/ner.sh ActoEPoems.txt > ner_ActoEPoems.txt`
+Return to your Terminal window. You should still be in the Corpora folder.
+
+`$ ../../stanford-ner-2018-02-27/ner.sh bwrp_ActoEPoems.txt > ner_bwrp_ActoEPoems.txt`
 
 Open ner_ActoEPoems.txt in a text editor and examine the results.
+
+It looks horrific now, but with some [(equally horrific) scripts](https://github.com/brandontlocke/batchner/blob/master/batchner.sh), you can create an accessible listing of named entities in a corpus.
+
+![screenshot of entities in the corpus as counted by NER](img/entities.png)
+*View of the BWRP entities spreadsheet created by the 'batchner' script linked above*
+
+## Further Resources
+
+[*Sourcecaster*](https://datapraxis.github.io/sourcecaster/)
+
+Ian Milligan and James Baker, [*Introduction to the Bash Command
+Line*](http://programminghistorian.org/lessons/intro-to-bash)
