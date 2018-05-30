@@ -1,6 +1,8 @@
 ## Adding Structure and Extracting Features
-### Tesseract Optical Character Recognition (OCR)
 
+You should already have a project/corpora folder on your Desktop with these files in it. If not, you can [download the texts folder here](https://github.com/dmics/commandlinebootcamp/blob/master/dmics-texts.zip).
+
+### Tesseract Optical Character Recognition (OCR)
 #### Description
 Tesseract-OCR is an open source OCR (optical character recognition) engine, originally developed by Hewlett Packard Laboratories. The standard installation of Tesseract-OCR can convert images of text in 39 different languages to plain text data.  
 
@@ -26,6 +28,7 @@ Using your GUI, compare the tif file to the txt files you generated
 While we’re here, why don’t we just OCR all of them in one batch?
 
 `$ for i in *.tiff ; do tesseract $i $i; done;`
+>*Remember our loop from the Command Line Bootcamp? This works the same way, but condenses everything to a single line using semicolons between commands.*
 
 ----
 *FYI for Windows Users*
