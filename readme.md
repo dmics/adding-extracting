@@ -1,6 +1,6 @@
 ## Adding Structure and Extracting Features
 
-You should already have a project/corpora folder on your Desktop with these files in it. If not, you can [download the texts folder here](https://github.com/dmics/commandlinebootcamp/blob/master/dmics-texts.zip).
+You should already have a project/corpora folder on your Desktop with these files in it. If not, you can [download the texts folder here](https://github.com/dmics/adding-extracting/blob/master/project.zip), unzip it, and move it to the Desktop.
 
 ### Tesseract Optical Character Recognition (OCR)
 #### Description
@@ -11,7 +11,7 @@ You visit an archive and need to capture images of text based archival collectio
 
 *Sometimes we get page images, but what we really need is plain text. Tesseract is free OCR software available in lots of languages that can generate text from images at a large scale.*
 
-Navigate to the sevenagesofwoman folder
+Navigate to the sevenagesofwoman folder (/Desktop/project/corpora/sevenagesofwoman)
 
 `$ cd sevenagesofwoman`
 
@@ -19,7 +19,7 @@ List files in the sevenagesofwoman folder
 
 `$ ls`
 
-Convert one tif file to one txt file using Tesseract OCR
+Convert one tiff file to one txt file using Tesseract OCR
 
 `$ tesseract sevenagesofwoman_thebride.tiff sevenagesofwoman_thebride`
 
@@ -48,48 +48,59 @@ While we’re here, why don’t we just OCR all of them in one batch?
 
 ----
 
-### GREP and Regular Expressions
+### EGREP and Regular Expressions
 
 #### Searching & Mining
 
-Move back to the poetry books
+Move back to the BWRP books
 
 `$ cd ..`
 
 Find out how many lines and words there are in a text of your choosing using **wc -l -w**
 
-`$ wc -l -w ActoEPoems.txt`
+`$ wc -l -w bwrp_ActoEPoems.txt`
 
 Results:
 
 ```
-3861 15603 ActoEPoems.txt
+1607 15242 bwrp_ActoEPoems.txt
 ```
+>1607 lines and 15,242 words
 
-Do some very basic searching with grep
+Do some very basic searching with egrep — this will print the entire line it's mentioned in
 
-`$ grep europe *txt`
+`$ egrep europe *txt`
 
-`$ grep Europe *txt`
+`$ egrep Europe *txt`
 
-`$ grep America *txt`
+`$ egrep America *txt`
 
-Do some very basic counting with **grep -c**
+Do some very basic counting with **egrep -c**
 
-`$ grep -c man *txt`
+`$ egrep -c man *txt`
 
-`$ grep -c woman *txt`
+`$ egrep -c woman *txt`
 
-Count only whole words using **grep -cw**
+Count only whole words using **egrep -cw**
 
-`$ grep -cw man *txt`
+`$ egrep -cw man *txt`
 
-@@ come up with a search that matches a pattern or part of a words
+The possibilities for regular expressions are endless (and sometimes difficult and always ugly), but you can also find matching patterns.
 
-`egrep` opens up an extended set of regular expression search features @@
-search for context around a word
-`egrep -r -o '.{0,50}\b185[0-9]\b.{0,50}' ./`
-@@@
+What 18th and 19th century years (or very similar four character numbers) are mentioned in these texts?
+`$ egrep -o '\b1[7-8][0-9][0-9]\b' *txt`
+> the -o flag returns just the text that matches the pattern
+this looks for four numbers in a row that start with a 17 or 18—the rest can be any numbers
+
+It's possible that some of these aren't years. They could be page numbers or amounts or anything else. Let's do a search that includes some context, but not the entire line.
+
+`$ egrep -o '.{0,50}\b1[7-8][0-9][0-9]\b.{0,50}' *txt`
+
+This context feature is interesting. What if we wanted to look at the words around 'America' to see what people are saying without getting every full line?
+
+`$ egrep -o '.{0,50}America.{0,50}' *txt`
+
+We could even move this into a separate corpus if we wanted by adding `> americacontext.text` to that search.
 
 ### Stanford NER
 
