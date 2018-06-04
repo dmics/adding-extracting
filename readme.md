@@ -115,7 +115,7 @@ You want to assess the frequency of mentions of people and places in work(s) of 
 
 #### NER GUI Tool
 
-** Before we start, please make sure the stanford-ner-2018-02-27 folder is on your Desktop.**
+**Before we start, please make sure you drag the stanford-ner-2018-02-27 folder from User/Applications to your Desktop.**
 
 1. Open the Stanford NER folder and double click stanford-ner.jar. This will open a window with some sample text.
 1. Load a Classifier: Classifier > Load CRF from File > navigate to stanford-ner-2018-02-27/classifiers folder > select english.all.3class.distsim.crf.ser.gz
