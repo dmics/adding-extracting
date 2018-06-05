@@ -2,7 +2,9 @@
 
 [Slides are here](https://docs.google.com/presentation/d/1sRC1cilTHQ4QWTiFa2xu9WQj_XU3ZyLbFUB3WAsTxmk/edit?usp=sharing)
 
-You should already have a project/corpora folder on your Desktop with these files in it. If not, you can [download the texts folder here](https://github.com/dmics/adding-extracting/blob/master/project.zip), unzip it, and move it to the Desktop.
+**Since we didn't do all of the steps in the Command Line Bootcamp yesterday, please delete the 'Project' folder on your Desktop and then download and unzip this ['projects' folder with prepared texts](https://github.com/dmics/adding-extracting/blob/master/project.zip) and put it on your Desktop.**
+
+**Please also drag the 'stanford-ner-2018-02-27' folder to the Desktop (it's in User/Applications).**
 
 ### Tesseract Optical Character Recognition (OCR)
 #### Description
