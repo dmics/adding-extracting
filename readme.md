@@ -15,7 +15,7 @@ You visit an archive and need to capture images of text based archival collectio
 
 *Sometimes we get page images, but what we really need is plain text. Tesseract is free OCR software available in lots of languages that can generate text from images at a large scale.*
 
-Navigate to the sevenagesofwoman folder (/Desktop/project/corpora/sevenagesofwoman)
+Navigate to the sevenagesofwoman folder (`$ cd Desktop/project/corpora/sevenagesofwoman`)
 
 `$ cd sevenagesofwoman`
 
